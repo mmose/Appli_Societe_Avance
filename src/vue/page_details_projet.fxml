@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="816.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.ctrl_details_projet">
+   <children>
+      <Label fx:id="lbl_intitule_projet" layoutX="26.0" layoutY="133.0" prefHeight="21.0" prefWidth="764.0" text="intitule" textFill="WHITE">
+         <font>
+            <Font size="29.0" />
+         </font></Label>
+      <Label fx:id="lbl_etat_projet" layoutX="31.0" layoutY="176.0" prefHeight="17.0" prefWidth="755.0" text="etat" textFill="WHITE" />
+      <Label fx:id="lbl_date_debut_projet" layoutX="135.0" layoutY="213.0" prefHeight="17.0" prefWidth="171.0" text="date debut" textFill="WHITE" />
+      <Label fx:id="lbl_date_fin_projet" layoutX="138.0" layoutY="245.0" prefHeight="17.0" prefWidth="171.0" text="date de fin" textFill="WHITE" />
+      <Label fx:id="lbl_cree_par_projet" layoutX="612.0" layoutY="147.0" prefHeight="17.0" prefWidth="67.0" text="cree par" textFill="WHITE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#992525" height="84.0" stroke="BLACK" strokeType="INSIDE" width="816.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#992525" height="70.0" layoutY="527.0" stroke="BLACK" strokeType="INSIDE" width="816.0" />
+      <Label layoutX="65.0" layoutY="21.0" text="Détails" textFill="WHITE">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="212.0" text="Date de début : " textFill="#ffbf00">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="244.0" text="Date de fin      : " textFill="#ffbf00">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="562.0" layoutY="147.0" text="Auteur :" textFill="#ffbf00" />
+      <TableView fx:id="table_participants" layoutX="35.0" layoutY="313.0" prefHeight="200.0" prefWidth="253.0">
+        <columns>
+          <TableColumn fx:id="col_pseudo_participant" prefWidth="118.99996948242188" text="Pseudo" />
+          <TableColumn fx:id="col_fonction_participant" prefWidth="133.0" text="Fonction" />
+        </columns>
+      </TableView>
+      <Label layoutX="41.0" layoutY="290.0" text="Participants :" textFill="WHITE" />
+      <Label layoutX="457.0" layoutY="284.0" text="Mes tâches :" textFill="WHITE" />
+      <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="529.0" layoutY="281.0" onMouseClicked="#ajouter_tache" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/user/ajouter.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <TableView fx:id="table_tache" layoutX="453.0" layoutY="309.0" prefHeight="200.0" prefWidth="349.0">
+        <columns>
+          <TableColumn fx:id="col_numero_tache" prefWidth="97.0" text="Numero" />
+          <TableColumn fx:id="col_description_tache" prefWidth="251.0" text="Description" />
+            <TableColumn fx:id="col_id_tache" prefWidth="97.0" text="ID" visible="false" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="558.0" layoutY="280.0" onMouseClicked="#modifier_tache" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/user/modifier.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="587.0" layoutY="280.0" onMouseClicked="#supprimer_tache" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/user/supprimer.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="70.0" fitWidth="65.0" layoutX="725.0" layoutY="98.0" onMouseClicked="#reset" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/user/rafraichir.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ScrollPane layoutX="303.0" layoutY="189.0" prefHeight="84.0" prefWidth="503.0">
+         <content>
+            <Pane prefHeight="84.0" prefWidth="504.0">
+               <children>
+                  <Label fx:id="lbl_informations_projet" prefHeight="70.0" prefWidth="489.0" text="ICI" />
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+      <Label layoutX="306.0" layoutY="168.0" text="Informations relatives au projet :" textFill="#ffbf00" />
+   </children>
+</Pane>

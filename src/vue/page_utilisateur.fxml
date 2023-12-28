@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<Pane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="723.0" prefWidth="969.0" style="-fx-background-color: black; -fx-border-color: black;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.ctrl_page_utilisateur">
+   <children>
+      <Label fx:id="identification_connection" layoutX="14.0" layoutY="75.0" prefHeight="75.0" prefWidth="597.0" text="Bonjour," textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Abel" size="20.0" />
+         </font></Label>
+      <TabPane layoutX="1.0" layoutY="146.0" prefHeight="542.0" prefWidth="967.0" stylesheets="@../application/tabpane%20-user.css" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab style="-fx-background-color: white;" text="Tableau de bord">
+               <content>
+                  <Pane maxWidth="1.7976931348623157E308" prefHeight="535.0" prefWidth="969.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label layoutX="308.0" layoutY="42.0" text="Voici la liste des projets dans laquelle vous êtes sélectionné" />
+                        <TableView fx:id="table_personnel" layoutX="36.0" layoutY="77.0" onMouseClicked="#selection" prefHeight="347.0" prefWidth="898.0" stylesheets="@../application/table_view.css">
+                          <columns>
+                            <TableColumn fx:id="col_numero" prefWidth="145.0" text="Numero" />
+                              <TableColumn fx:id="col_nom_client" prefWidth="145.0" text="Client" />
+                            <TableColumn fx:id="col_description" prefWidth="752.0" text="Description" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="780.0" layoutY="445.0" mnemonicParsing="false" onAction="#details_projet" prefHeight="52.0" prefWidth="139.0" style="-fx-background-color: #F5AD11;" text="VOIR" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+             <Tab style="-fx-background-color: white;" text="Messages">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                     <children>
+                        <ListView fx:id="listview_projet" layoutX="29.0" layoutY="67.0" onMouseClicked="#selection_listview" prefHeight="429.0" prefWidth="198.0" />
+                        <Label layoutX="29.0" layoutY="35.0" text="Sélectionnez un projet" />
+                        <TextArea fx:id="contenu_message" layoutX="516.0" layoutY="407.0" prefHeight="82.0" prefWidth="373.0" />
+                        <Button fx:id="btn_envoyer_message" disable="true" layoutX="889.0" layoutY="406.0" mnemonicParsing="false" onAction="#envoyer_message" prefHeight="84.0" prefWidth="52.0" text="OK" />
+                        <ListView fx:id="listview_personnel_projet" layoutX="315.0" layoutY="67.0" onMouseClicked="#selection_listview2" prefHeight="341.0" prefWidth="200.0" />
+                        <ScrollPane layoutX="515.0" layoutY="67.0" pannable="true" prefHeight="341.0" prefWidth="427.0">
+                           <content>
+                              <TableView fx:id="tableview_mail" onMouseClicked="#selection_mail" prefHeight="339.0" prefWidth="430.0">
+                                <columns>
+                                  <TableColumn fx:id="col_date_reception_mail" prefWidth="118.0" text="Date de réception" />
+                                  <TableColumn fx:id="col_destinateur_mail" prefWidth="101.0" text="Destinateur" />
+                                    <TableColumn fx:id="col_objet_mail" prefWidth="204.0" text="Objet" />
+                                    <TableColumn fx:id="col_numero_mail" prefWidth="101.0" text="Numero" visible="false" />
+                                    <TableColumn fx:id="col_message_mail" prefWidth="101.0" text="Message" visible="false" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <Pane layoutX="315.0" layoutY="408.0" prefHeight="82.0" prefWidth="200.0" style="-fx-background-color: #992525;">
+                           <children>
+                              <Label fx:id="lbl_destinateur" layoutX="14.0" layoutY="14.0" textFill="WHITE" />
+                              <Label fx:id="lbl_objet" layoutX="14.0" layoutY="41.0" textFill="WHITE" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="315.0" layoutY="35.0" onMouseClicked="#charger_email" text="Charger les mails" underline="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </content></Tab>
+            <Tab style="-fx-background-color: white;" text="Calendrier">
+               <content>
+                  <Pane prefHeight="545.0" prefWidth="969.0">
+                     <children>
+                        <WebView fx:id="page_web" prefHeight="583.0" prefWidth="969.0" />
+                     </children></Pane>
+               </content>
+               </Tab><Tab style="-fx-background-color: white;" text="Aide">
+               <content>
+                  <Pane prefHeight="609.0" prefWidth="967.0" style="-fx-background-color: white;">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="688.0" layoutY="139.0" onMouseClicked="#aide_adobe" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icones/adobe_creative_cloud.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="395.0" layoutY="131.0" onMouseClicked="#aide_serveur" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icones/device-drive-icon.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="73.0" layoutY="131.0" onMouseClicked="#aide_bdd" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icones/bdd.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <TextArea layoutX="25.0" layoutY="344.0" prefHeight="154.0" prefWidth="729.0" />
+                        <Button layoutX="799.0" layoutY="382.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="115.0" style="-fx-background-color: #F5AD11;" text="ENVOYER" />
+                        <Label layoutX="407.0" layoutY="47.0" text="Choisissez votre demande">
+                           <font>
+                              <Font name="Averia-Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="25.0" layoutY="313.0" text="Objet:" />
+                        <TextField fx:id="saisie_objet_message" disable="true" editable="false" layoutX="65.0" layoutY="309.0" prefHeight="25.0" prefWidth="240.0" />
+                     </children>
+                  </Pane>
+               </content></Tab>
+        </tabs>
+      </TabPane>
+      <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="903.0" layoutY="12.0" onMouseClicked="#deconnexion" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/user/deconnexion_user.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="788.0" layoutY="20.0" onMousePressed="#deplacer_fenetre" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/user/deplacer_user%20(2).png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="MOVE" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="63.0" fitWidth="66.0" layoutX="839.0" layoutY="8.0" onMouseClicked="#reduire" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/user/reduire_user.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="71.0" fitWidth="52.0" layoutX="3.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/user/parametre_user.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Button fx:id="btn_rafraichir" layoutX="892.0" layoutY="112.0" mnemonicParsing="false" onAction="#reset" style="-fx-background-color: #F5AD11;" text="Rafraichir" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="40.0" fitWidth="52.0" layoutX="145.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/admin_icon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbl_identifiant" layoutX="192.0" layoutY="25.0" text="Label" textFill="WHITE" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="352.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/user/mail_user.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbl_mail" layoutX="399.0" layoutY="25.0" text="Label" textFill="WHITE" />
+   </children>
+</Pane>

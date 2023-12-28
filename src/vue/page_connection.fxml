@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="parent" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="672.0" scaleShape="false" style="-fx-background-color: #992525;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.ctrl_page_connection">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="159.0" layoutY="171.0" opacity="0.22" stroke="BLACK" strokeType="INSIDE" width="672.0" />
+      <ImageView fitHeight="118.0" fitWidth="433.0" layoutX="131.0" layoutY="14.0" onMouseClicked="#logo_clique" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/logoVersoCarte%20copie.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <TextField fx:id="txt_pseudo" alignment="CENTER" layoutX="252.0" layoutY="196.0" promptText="Pseudo" style="-fx-background-color: white;">
+         <font>
+            <Font name="Abel" size="17.0" />
+         </font></TextField>
+      <Button fx:id="btn_avancez" layoutX="290.0" layoutY="407.0" mnemonicParsing="false" onAction="#avancez" style="-fx-background-color: #ffbf00;" text="AVANCEZ" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Button>
+      <PasswordField fx:id="txt_mdp" alignment="CENTER" layoutX="251.0" layoutY="264.0" promptText="Mot de passe" style="-fx-background-color: white;">
+         <font>
+            <Font name="Abel" size="17.0" />
+         </font></PasswordField>
+      <Label fx:id="label_fermer" layoutX="641.0" layoutY="7.0" onMouseClicked="#fermer" text="X" textFill="WHITE">
+         <font>
+            <Font name="Alfphabet IV" size="29.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="label_reduire" layoutX="597.0" layoutY="-8.0" onMouseClicked="#reduire" text="-" textFill="WHITE">
+         <font>
+            <Font name="Alfphabet IV" size="58.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="42.0" layoutX="8.0" layoutY="9.0" onMousePressed="#deplacer_fenetre" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icones/logo_deplacer.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="MOVE" />
+         </cursor>
+      </ImageView>
+   </children>
+</Pane>

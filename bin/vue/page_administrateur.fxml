@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="769.0" prefWidth="968.0" style="-fx-background-color: #992525; -fx-border-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.ctrl_page_administrateur">
+   <children>
+      <Label fx:id="identification_connection" layoutX="14.0" layoutY="56.0" prefHeight="75.0" prefWidth="597.0" text="Bonjour," textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Abel" size="20.0" />
+         </font></Label>
+      <TabPane layoutX="1.0" layoutY="146.0" prefHeight="574.0" prefWidth="966.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab style="-fx-background-color: white;" text="Magasins">
+               <content>
+                  <Pane maxWidth="1.7976931348623157E308" prefHeight="603.0" prefWidth="1007.0" style="-fx-background-color: white;">
+                     <children>
+                        <TableView fx:id="table_projet" layoutX="34.0" layoutY="56.0" onMouseClicked="#selection" prefHeight="347.0" prefWidth="898.0">
+                          <columns>
+                            <TableColumn fx:id="col_numero" prefWidth="88.0" text="Numero" />
+                              <TableColumn fx:id="col_date_limite" prefWidth="113.0" text="Date limite" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab style="-fx-background-color: white;" text="Paniers">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                     <children>
+                        <ListView fx:id="listview_projet" layoutX="29.0" layoutY="67.0" onMouseClicked="#selection_listview" prefHeight="429.0" prefWidth="198.0" />
+                        <Label layoutX="29.0" layoutY="43.0" text="Sélectionnez un projet" />
+                        <TextArea fx:id="contenu_message" layoutX="515.0" layoutY="408.0" prefHeight="81.0" prefWidth="374.0" />
+                        <Label layoutX="315.0" layoutY="23.0" text="Trie :" />
+                        <ChoiceBox layoutX="365.0" layoutY="19.0" prefWidth="150.0" />
+                        <Button fx:id="btn_envoyer_message" disable="true" layoutX="889.0" layoutY="406.0" mnemonicParsing="false" onAction="#envoyer_message" prefHeight="84.0" prefWidth="52.0" text="OK" />
+                        <ListView fx:id="listview_personnel_projet" layoutX="315.0" layoutY="67.0" onMouseClicked="#selection_listview2" prefHeight="341.0" prefWidth="200.0" />
+                        <ScrollPane layoutX="515.0" layoutY="67.0" pannable="true" prefHeight="341.0" prefWidth="427.0">
+                           <content>
+                              <VBox fx:id="vbox_message" prefHeight="336.0" prefWidth="429.0">
+                                 <padding>
+                                    <Insets bottom="10.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Boite de réception">
+                                       <VBox.margin>
+                                          <Insets left="120.0" top="150.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <Pane layoutX="315.0" layoutY="408.0" prefHeight="82.0" prefWidth="200.0" style="-fx-background-color: #992525;">
+                           <children>
+                              <Label fx:id="lbl_destinateur" layoutX="14.0" layoutY="14.0" textFill="WHITE" />
+                              <Label fx:id="lbl_objet" layoutX="14.0" layoutY="41.0" textFill="WHITE" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </content></Tab>
+            <Tab style="-fx-background-color: white;" text="Historique">
+               <content>
+                  <Pane prefHeight="545.0" prefWidth="969.0" />
+               </content></Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="btn_rafraichir" layoutX="890.0" layoutY="106.0" mnemonicParsing="false" onAction="#reset" style="-fx-background-color: #992525;" text="Rafraichir" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="lbl_identifiant" layoutX="192.0" layoutY="25.0" text="Label" textFill="WHITE" />
+      <Label fx:id="lbl_mail" layoutX="399.0" layoutY="25.0" text="Label" textFill="WHITE" />
+   </children>
+</Pane>
